@@ -130,7 +130,7 @@ a answer   must
 - [xverse_finetuning](https://github.com/ssbuild/xverse_finetuning)
 - [internlm_finetuning](https://github.com/ssbuild/internlm_finetuning)
 - [qwen_finetuning](https://github.com/ssbuild/qwen_finetuning)
-- [skywork_finetuning](https://github.com/ssbuild/skywork_finetuning)\
+- [skywork_finetuning](https://github.com/ssbuild/skywork_finetuning)
 - [bluelm_finetuning](https://github.com/ssbuild/bluelm_finetuning)
 - [yi_finetuning](https://github.com/ssbuild/yi_finetuning)
 ## 
