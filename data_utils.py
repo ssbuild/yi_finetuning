@@ -55,8 +55,15 @@ class NN_DataHelper(DataHelper):
         super(NN_DataHelper, self).__init__(*args, **kwargs)
         assert data_conf[DataStrategy.slidding]['stride'] > 0
 
-    def load_tokenizer_and_config(self, *args, **kwargs):
-        ret = super().load_tokenizer_and_config(*args, **kwargs)
+    def load_tokenizer_and_config(self, *args,config_kwargs=None, **kwargs):
+        base_path = self.model_args.config_name or self.model_args.model_name_or_path
+        if os.path.isfile(base_path):
+            base_path = os.path.dirname(base_path)
+        gen_file = os.path.join(base_path,"generation_config.json")
+        if os.path.exists(gen_file):
+            with open(gen_file,mode='r',encoding='utf-8') as f:
+                config_kwargs = json.loads(f.read())
+        ret = super().load_tokenizer_and_config(*args,config_kwargs=config_kwargs, **kwargs)
         self._preprocess_tokenizer_config()
         return ret
 
@@ -64,8 +71,6 @@ class NN_DataHelper(DataHelper):
         model_args = self.model_args
         tokenizer = self.tokenizer
         config = self.config
-
-
 
         if "llama" in model_args.model_type.lower():
             special_tokens_dict = dict()
@@ -80,13 +85,6 @@ class NN_DataHelper(DataHelper):
 
             _ = tokenizer.add_special_tokens(special_tokens_dict)
 
-            # tokenizer.add_special_tokens({
-            #     "eos_token": DEFAULT_EOS_TOKEN,
-            #     "bos_token": DEFAULT_BOS_TOKEN,
-            #     "unk_token": DEFAULT_UNK_TOKEN,
-            # })
-            # if tokenizer.pad_token_id is None or tokenizer.pad_token_id == -1:
-            #     tokenizer.pad_token_id = tokenizer.eos_token_id
 
         if tokenizer.pad_token is None:
             tokenizer.add_special_tokens({
