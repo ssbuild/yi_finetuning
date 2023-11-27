@@ -2,6 +2,7 @@
    - [deep_training](https://github.com/ssbuild/deep_training)
 
 ```text
+    11-27 yi model_type change to llama ,  suggest move  to  https://github.com/ssbuild/llm_finetuning
     10-04 initial yi , aigc-zoo >= 0.2.7.post2
 ```
    
@@ -15,7 +16,11 @@
 ## weigtht select one is suitable for you
 支持且不限于以下权重    
 - [Yi-6B](https://huggingface.co/01-ai/Yi-6B) 
+- [Yi-6B-200K](https://huggingface.co/01-ai/Yi-6B-200K)
 - [Yi-34B](https://huggingface.co/01-ai/Yi-34B)
+- [Yi-34B-200K](https://huggingface.co/01-ai/Yi-34B-200K)
+- [Yi-34B-Chat](https://huggingface.co/01-ai/Yi-34B-Chat)
+
 
 
 ## data sample
