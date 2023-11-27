@@ -34,7 +34,3 @@ def module_setup():
     # register_transformer_config(SkyworkConfig)
     # register_transformer_model(MySkyworkForCausalLM, AutoModelForCausalLM)
     # register_transformer_tokenizer(SkyworkConfig,SkyworkTokenizer,SkyworkTokenizer)
-    #
-    # register_transformer_config(YiConfig)
-    # register_transformer_model(MyYiForCausalLM, AutoModelForCausalLM)
-    # register_transformer_tokenizer(YiConfig, YiTokenizer, YiTokenizer)
